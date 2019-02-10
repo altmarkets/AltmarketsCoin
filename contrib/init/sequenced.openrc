@@ -1,0 +1,86 @@
+#!/sbin/runscript
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/Altmarkets/.Altmarkets" ]; then
+	AltmarketsD_DEFAULT_DATADIR="/var/lib/Altmarkets/.Altmarkets"
+else
+	AltmarketsD_DEFAULT_DATADIR="/var/lib/Altmarketsd"
+fi
+
+AltmarketsD_CONFIGFILE=${AltmarketsD_CONFIGFILE:-/etc/Altmarkets/Altmarkets.conf}
+AltmarketsD_PIDDIR=${AltmarketsD_PIDDIR:-/var/run/Altmarketsd}
+AltmarketsD_PIDFILE=${AltmarketsD_PIDFILE:-${AltmarketsD_PIDDIR}/Altmarketsd.pid}
+AltmarketsD_DATADIR=${AltmarketsD_DATADIR:-${AltmarketsD_DEFAULT_DATADIR}}
+AltmarketsD_USER=${AltmarketsD_USER:-Altmarkets}
+AltmarketsD_GROUP=${AltmarketsD_GROUP:-Altmarkets}
+AltmarketsD_BIN=${AltmarketsD_BIN:-/usr/bin/Altmarketsd}
+
+name="Altmarkets Daemon"
+description="Altmarkets crypto-currency p2p network daemon"
+
+command="/usr/bin/Altmarketsd"
+command_args="-pid=\"${AltmarketsD_PIDFILE}\" \
+		-conf=\"${AltmarketsD_CONFIGFILE}\" \
+		-datadir=\"${AltmarketsD_DATADIR}\" \
+		-daemon \
+		${AltmarketsD_OPTS}"
+
+required_files="${AltmarketsD_CONFIGFILE}"
+start_stop_daemon_args="-u ${AltmarketsD_USER} \
+			-N ${AltmarketsD_NICE:-0} -w 2000"
+pidfile="${AltmarketsD_PIDFILE}"
+retry=60
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${AltmarketsD_USER}:${AltmarketsD_GROUP}" \
+	"${AltmarketsD_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${AltmarketsD_USER}:${AltmarketsD_GROUP}" \
+	"${AltmarketsD_PIDDIR}"
+
+	checkpath -f \
+	-o ${AltmarketsD_USER}:${AltmarketsD_GROUP} \
+	-m 0660 \
+	${AltmarketsD_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${AltmarketsD_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run Altmarketsd."
+		eerror "The setting must appear in ${AltmarketsD_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following"
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is also recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"Altmarkets Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}

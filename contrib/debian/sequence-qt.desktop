@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Altmarkets
+Comment=Altmarkets P2P Cryptocurrency
+Comment[fr]=Altmarkets, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Altmarkets, eşten eşe kriptografik sanal para birimi
+Exec=Altmarkets-qt %u
+Terminal=false
+Type=Application
+Icon=Altmarkets128
+MimeType=x-scheme-handler/Altmarkets;
+Categories=Office;Finance;

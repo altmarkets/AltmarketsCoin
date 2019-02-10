@@ -1,0 +1,27 @@
+# /etc/conf.d/Altmarketsd: config file for /etc/init.d/Altmarketsd
+
+# Config file location
+#AltmarketsD_CONFIGFILE="/etc/Altmarkets/Altmarkets.conf"
+
+# What directory to write pidfile to?  (created and owned by $AltmarketsD_USER)
+#AltmarketsD_PIDDIR="/var/run/Altmarketsd"
+
+# What filename to give the pidfile
+#AltmarketsD_PIDFILE="${AltmarketsD_PIDDIR}/Altmarketsd.pid"
+
+# Where to write Altmarketsd data (be mindful that the blockchain is large)
+#AltmarketsD_DATADIR="/var/lib/Altmarketsd"
+
+# User and group to own Altmarketsd process
+#AltmarketsD_USER="Altmarkets"
+#AltmarketsD_GROUP="Altmarkets"
+
+# Path to Altmarketsd executable
+#AltmarketsD_BIN="/usr/bin/Altmarketsd"
+
+# Nice value to run Altmarketsd under
+#AltmarketsD_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+AltmarketsD_OPTS="-disablewallet"
+
