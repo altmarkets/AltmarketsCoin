@@ -125,7 +125,7 @@ static const unsigned int MAX_BLOCKS_TO_ANNOUNCE = 12;
 
 /** Altmarkets constants */
 static const CAmount STATIC_POW_REWARD = 0 * COIN;
-static const CAmount STATIC_POS_REWARD = 1 * COIN;
+static const CAmount STATIC_POS_REWARD = 5 * COIN;
 static const CAmount MIN_TXOUT_AMOUNT = MIN_TX_FEE;
 static const int64_t nMaxClockDrift = 15 * 60; // 15 minute drift
 

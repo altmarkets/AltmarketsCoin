@@ -136,7 +136,8 @@ public:
         assert(genesis.hashMerkleRoot == uint256("0x73d6f8c42dfa8c9175b8bf4bf75ebfd10d22b0b6b1a39a82ce0e408447418e4b"));
 
         vSeeds.push_back(CDNSSeedData("159.65.85.124", "159.65.85.124"));
-
+        vSeeds.push_back(CDNSSeedData("206.189.186.144", "206.189.186.144"));
+        
         // Altmarkets PUBKEY_ADDRESS addresses start with 'A'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,23);
         // Altmarkets SCRIPT_ADDRESS addresses start with 'S or T'
