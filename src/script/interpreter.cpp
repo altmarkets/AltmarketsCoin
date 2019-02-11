@@ -1267,15 +1267,6 @@ bool AddressMatchesPubKey(const CNameVal& name, const CNameVal& value, std::stri
         return false;
     }
 
-    CKeyID keyID = vchPubKey.GetID();
-    if (CAltmarketsAddress(keyID).ToString() != strAddress)
-    {
-        strError = CAltmarketsAddress(keyID).ToString() + " != Base58(SHA256(" + strAddress + "))";
-        return false;
-    }
-    return true;
-}
-
 // read name script and extract name, value and rentalDays
 // returns true/false if script is correct/incorrect
 bool DecodeNameScript(const CScript& script, NameTxInfo& ret, CScript::const_iterator& pc)
