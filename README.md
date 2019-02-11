@@ -17,7 +17,7 @@
 * PoS Algorithm: Blake2b
 * PoS Target Spacing: 64 Seconds 
 * PoS Difficulty Retarget: 10 Blocks 
-* PoS Reward: 2 ALTM
+* PoS Reward: 5 ALTM
 * PoS Min: 1 Hour
 * PoS Max: Unlimited
 * Total Coins: 2<sup>63</sup> - 1
