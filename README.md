@@ -5,6 +5,9 @@
 
 **Copyright (c) 2016-2018 AltMarkets Solutions**
 
+Exchange: https://altmarkets.io
+ALTM Altmarkets Exchange Utility Coin
+
 #### What is Altmarkets?
 ----------------
 * Coin Suffix: ALTM
