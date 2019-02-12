@@ -126,7 +126,7 @@ public:
         consensus.nStakeMinAge = 1 * 60 * 60;     // 1 hour minimum stake age
         consensus.nStakeMaxAge = std::numeric_limits<int64_t>::max(); // Unlimited stake age
         consensus.nModifierInterval = 15 * 60;    // 15 minutes to elapse before new modifier is computed
-        consensus.nLastPOWBlock = 1050;          // Proof of Work finishes on block 10000
+        consensus.nLastPOWBlock = 800000;          // Proof of Work finishes on block 800000 to secure network
 
         genesis = CreateGenesisBlock(1473949500, 37239843, consensus.bnProofOfWorkLimit.GetCompact(), 1, (0 * COIN));
 
