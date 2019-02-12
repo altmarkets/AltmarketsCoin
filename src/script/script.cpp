@@ -19,6 +19,7 @@ inline std::string ValueString(const std::vector<unsigned char>& vch)
 }
 } // anon namespace
 
+using namespace std;
 const char* GetOpName(opcodetype opcode)
 {
     switch (opcode)

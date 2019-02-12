@@ -361,7 +361,7 @@ BOOL Win32SequentialFile::_Init()
                          FILE_SHARE_READ | FILE_SHARE_WRITE,
                          NULL,
                          OPEN_EXISTING,
-                         FILE_ATTRIBUTE_NORMAL | FILE_FLAG_ALTMUENTIAL_SCAN,
+                         FILE_ATTRIBUTE_NORMAL | FILE_FLAG_SEQUENTIAL_SCAN,
                          NULL);
     if (_hFile == INVALID_HANDLE_VALUE)
         _hFile = NULL;
