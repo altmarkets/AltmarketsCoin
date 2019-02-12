@@ -5,11 +5,14 @@
 
 **Copyright (c) 2016-2018 AltMarkets Solutions**
 
+Exchange: https://altmarkets.io
+ALTM Altmarkets Exchange Utility Coin
+
 #### What is Altmarkets?
 ----------------
 * Coin Suffix: ALTM
 * PoW Algorithm: Scrypt
-* PoW Period: 10,000 Blocks
+* PoW Period: 1,050 Blocks
 * PoW Target Spacing: 60 Seconds 
 * PoW Difficulty Retarget: 10 Blocks 
 * PoW Reward per Block: 0 ALTM
@@ -17,7 +20,7 @@
 * PoS Algorithm: Blake2b
 * PoS Target Spacing: 64 Seconds 
 * PoS Difficulty Retarget: 10 Blocks 
-* PoS Reward: 2 ALTM
+* PoS Reward: 5 ALTM
 * PoS Min: 1 Hour
 * PoS Max: Unlimited
 * Total Coins: 2<sup>63</sup> - 1

@@ -7,7 +7,6 @@
 
 #include "interpreter.h"
 
-#include "base58.h"
 #include "eccryptoverify.h"
 #include "pubkey.h"
 #include "crypto/ripemd160.h"
@@ -1266,7 +1265,7 @@ bool AddressMatchesPubKey(const CNameVal& name, const CNameVal& value, std::stri
         strError = strPubKey + " is not a valid public key hex.";
         return false;
     }
-
+/*
     CKeyID keyID = vchPubKey.GetID();
     if (CAltmarketsAddress(keyID).ToString() != strAddress)
     {
@@ -1274,6 +1273,7 @@ bool AddressMatchesPubKey(const CNameVal& name, const CNameVal& value, std::stri
         return false;
     }
     return true;
+	*/
 }
 
 // read name script and extract name, value and rentalDays
