@@ -12,7 +12,7 @@ ALTM Altmarkets Exchange Utility Coin
 ----------------
 * Coin Suffix: ALTM
 * PoW Algorithm: Scrypt
-* PoW Period: 1,050 Blocks
+* PoW Period: 800,00 Blocks (0 block reward, only POW to secure the network if needed)
 * PoW Target Spacing: 60 Seconds 
 * PoW Difficulty Retarget: 10 Blocks 
 * PoW Reward per Block: 0 ALTM
