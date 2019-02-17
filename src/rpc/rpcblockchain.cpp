@@ -1,6 +1,7 @@
 // Copyright (c) 2009-2018 Satoshi Nakamoto
 // Copyright (c) 2009-2018 The Bitcoin Developers
 // Copyright (c) 2016-2018 Duality Blockchain Solutions Developers
+// Copyright (C) 2018-2019 Altmarkets.io Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -110,6 +111,13 @@ double GetPoSKernelPS(const CBlockIndex* blockindex)
         result = dStakeKernelsTriedAvg / nStakesTime;
 
     result /= 4;
+
+    if(fDebugPoS)
+    {
+        LogPrintf("GetPoSKernelPS() : %d stakes in calculation\n", nStakesHandled);
+        LogPrintf("GetPoSKernelPS() : nStakesTime=%d dStakeKernelsTriedAvg=%f result=%f\n",
+                  nStakesTime, dStakeKernelsTriedAvg, result);
+    }
 
     return result;
 }

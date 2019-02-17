@@ -2,6 +2,7 @@
 // Copyright (c) 2009-2017 The Bitcoin Developers
 // Copyright (c) 2013-2017 Emercoin Developers
 // Copyright (c) 2016-2017 Duality Blockchain Solutions Developers
+// Copyright (C) 2018-2019 Altmarkets.io Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,6 +10,8 @@
 #define Altmarkets_KERNEL_H
 
 #include "main.h"
+
+static const bool fDebugPoS = false;
 
 // MODIFIER_INTERVAL_RATIO:
 // ratio of group interval length between the last group and the first group

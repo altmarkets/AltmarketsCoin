@@ -2,6 +2,7 @@
 // Copyright (c) 2009-2017 The Bitcoin Developers
 // Copyright (c) 2013-2017 Emercoin Developers
 // Copyright (c) 2016-2017 Duality Blockchain Solutions Developers
+// Copyright (C) 2018-2019 Altmarkets.io Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -22,8 +23,6 @@
 #include <boost/assign/list_of.hpp>
 
 using namespace std;
-
-static const bool fDebugPoS = false;
 
 // Hard checkpoints of stake modifiers to ensure they are deterministic
 static std::map<int, unsigned int> mapStakeModifierCheckpoints = {
