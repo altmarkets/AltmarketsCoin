@@ -79,7 +79,7 @@ double GetPoWMHashPS(const CBlockIndex* blockindex)
 
 double GetPoSKernelPS(const CBlockIndex* blockindex)
 {   
-    int nPoSInterval = 72;
+    int nPoSInterval = 36;
     double dStakeKernelsTriedAvg = 0;
     int nStakesHandled = 0, nStakesTime = 0;
 
