@@ -35,6 +35,7 @@
 
 #include <boost/foreach.hpp>
 #include <boost/algorithm/string/replace.hpp>
+#include <boost/algorithm/string.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
 #include <boost/lexical_cast.hpp>
@@ -4175,7 +4176,13 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             vRecv >> addrFrom >> nNonce;
         if (!vRecv.empty()) {
             vRecv >> LIMITED_STRING(pfrom->strSubVer, 256);
+            LogPrintf("Received %s from peer!\n", pfrom->strSubVer);
             pfrom->cleanSubVer = SanitizeSubVersionString(pfrom->strSubVer);
+
+            if (!boost::algorithm::contains(pfrom->strSubVer, VERSION_IDENTIFIER)) {
+                LogPrintf("MISBEHAVING node %s, received version identifier \"%s\"", pfrom->addrName, pfrom->strSubVer);
+                Misbehaving(pfrom->GetId(), 100);
+            }
         }
         if (!vRecv.empty())
             vRecv >> pfrom->nStartingHeight;
