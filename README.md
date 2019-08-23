@@ -1,9 +1,9 @@
 
-# **Altmarkets (ALTM) v1.2.0.0**
+# **Altmarkets (ALTM) v1.3.1.0**
 
 ![ALTM logo](https://github.com/altmarkets/AltmarketsCoin/blob/master/src/qt/res/icons/Altmarkets-128.png)
 
-**Copyright (c) 2016-2018 AltMarkets Solutions**
+**Copyright (c) 2016-2019 AltMarkets Solutions**
 
 Exchange: https://altmarkets.io
 ALTM Altmarkets Exchange Utility Coin
