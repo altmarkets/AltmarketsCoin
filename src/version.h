@@ -8,7 +8,7 @@
 #define Altmarkets_VERSION_H
 
 #define VERSION_IDENTIFIER "Altmarkets"
-static const int PROTOCOL_VERSION = 70200;
+static const int PROTOCOL_VERSION = 702000;
 static const int INIT_PROTO_VERSION = 209;
 
 // In this version, 'getheaders' was introduced.
