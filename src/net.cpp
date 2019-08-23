@@ -1318,7 +1318,7 @@ void ThreadMapPort()
             }
         }
 
-        string strDesc = "Altmarkets" + FormatFullVersion();
+        string strDesc = VERSION_IDENTIFIER + FormatFullVersion();
 
         try {
             while (true) {
