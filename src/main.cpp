@@ -4180,7 +4180,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             pfrom->cleanSubVer = SanitizeSubVersionString(pfrom->strSubVer);
 
             if (!boost::algorithm::contains(pfrom->strSubVer, VERSION_IDENTIFIER)) {
-                LogPrintf("MISBEHAVING node %s, received version identifier \"%s\"", pfrom->addrName, pfrom->strSubVer);
+                LogPrintf("MISBEHAVING node %s, received version identifier \"%s\".\n", pfrom->addrName, pfrom->strSubVer);
                 Misbehaving(pfrom->GetId(), 100);
             }
         }
