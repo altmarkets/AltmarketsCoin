@@ -169,9 +169,15 @@ public:
         fTestnetToBeDeprecatedFieldRPC = false;
 
         checkpointData = (CCheckpointData) {
-            {{ 0, uint256("0x")}},
-            1486676814, // * UNIX timestamp of last checkpoint block
-            0,          // * total number of transactions between genesis and last checkpoint
+            {{ 0, uint256("0x000000251356c62e0aa14c63e2b0db2a05ac0d3316ea5000c797a281be8c9fd7")},
+            { 500, uint256("0x000000007bf1e762992a4d6369d9689ae501000ffec12c25c25eccbf53ded4d0")},
+            { 1000, uint256("0x00000000b9a708200eec1c595aff10844cbe2f4d6cad046d8446c616ddbce87e")},
+            { 4000, uint256("0x00000020b1d99f01d3debd634fbb053dc520b6e5772294cb9a0ac8cd339899e7")},
+            { 10000, uint256("0x0000001fc4553f7eff02dc3c99ba97f3ff21020879b39fd2fb7a3dca854ab73e")},
+            { 40000, uint256("0xce181929ebf618abb50857f0c0277e828bca58fcb0c10827c7ad367343844b23")},
+            { 120000, uint256("0x4f2782c313464af8ab525bde4bd2fb8e37b9ad23627734e4f01a96e733f9f525")}},
+            1567321179, // * UNIX timestamp of last checkpoint block
+            192873,          // * total number of transactions between genesis and last checkpoint
 						  //   (the tx=... number in the SetBestChain debug.log lines)
             2000        // * estimated number of transactions per day after checkpoint
         };
