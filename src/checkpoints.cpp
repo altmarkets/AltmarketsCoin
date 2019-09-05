@@ -399,7 +399,7 @@ bool SendSyncCheckpoint(uint256 hashCheckpoint)
 
 
 // Altmarkets: sync-checkpoint master key
-const std::string CSyncCheckpoint::strMasterPubKey = "04adff441e5180929b1a21b29cca132bb8581d6e4d2230dfebe0ac43c18dae124373eb4bedb1a390df20b2861ccded107704cbcf8ffd1e077b5fd5a8b8090cfdfc";
+const std::string CSyncCheckpoint::strMasterPubKey = "0446734e742e5bb9c3c810aff149bf392fa4bdd24c96046c43fe659593effbf7d422dde00b35d212c1b0b8208690fd30feff8c805ae80af13e8c5dfbc2d95c354c";
 std::string CSyncCheckpoint::strMasterPrivKey = "";
 
 // ppcoin: verify signature of sync-checkpoint message
