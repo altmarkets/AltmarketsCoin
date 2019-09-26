@@ -8,12 +8,12 @@
 #define Altmarkets_VERSION_H
 
 #define VERSION_IDENTIFIER "Altmarkets"
-static const int PROTOCOL_VERSION = 702000;
+static const int PROTOCOL_VERSION = 702001;
 static const int INIT_PROTO_VERSION = 209;
 
 // In this version, 'getheaders' was introduced.
 static const int GETHEADERS_VERSION = 60800;
-static const int MIN_PEER_PROTO_VERSION = 60900;
+static const int MIN_PEER_PROTO_VERSION = 702001;
 static const int CADDR_TIME_VERSION = 31402;
 
 // only request blocks from nodes outside this range of versions
