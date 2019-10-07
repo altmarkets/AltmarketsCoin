@@ -2878,6 +2878,15 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
     // redundant with the call in AcceptBlockHeader.
     if (!CheckBlockHeader(block, state, fCheckPOW && !block.IsProofOfStake()))
         return false;
+        
+    // patch ability to POW coins to any value
+    if (chainActive.Height() >= 137400 && !block.IsProofOfStake())
+    {
+        int64_t nReward = GetProofOfWorkReward();
+        // Check coinbase reward
+        if (block.vtx[0].GetValueOut() > nReward)
+            return state.DoS(100, error("CheckInputs() : POW coinbase reward exceeded (actual=%d vs calculated=%d)", block.vtx[0].GetValueOut(), nReward));
+    }
 
     // Check the merkle root.
     if (fCheckMerkleRoot) {
@@ -3161,14 +3170,14 @@ extern CWallet* pwalletMain;
 bool ProcessNewBlock(CValidationState &state, const CChainParams& chainparams, CNode* pfrom, CBlock* pblock, CDiskBlockPos *dbp)
 {
     // Preliminary checks
-    //bool checked = CheckBlock(*pblock, state); // Altmarkets: removed, since this check happens later in AcceptBlock function
+    bool checked = CheckBlock(*pblock, state); 
 
     {
         LOCK(cs_main);
         MarkBlockAsReceived(pblock->GetHash());
-//        if (!checked) {
-//            return error("%s : CheckBlock FAILED", __func__);
-//        }
+       if (!checked) {
+           return error("%s : CheckBlock FAILED", __func__);
+       }
 
         // Store to disk
         CBlockIndex *pindex = NULL;
