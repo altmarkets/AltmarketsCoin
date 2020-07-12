@@ -905,6 +905,8 @@ UniValue CRPCTable::execute(const std::string &strMethod, const UniValue &params
         // Execute
         UniValue result(UniValue::VOBJ);
         {
+            LOCK(cs_vNodes); // Required for correct lock order
+
             if (pcmd->threadSafe)
                 result = pcmd->actor(params, false);
 #ifdef ENABLE_WALLET
