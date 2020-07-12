@@ -1706,7 +1706,9 @@ void ThreadMessageHandler()
 
             // Send messages
             {
+                LOCK(cs_main);
                 TRY_LOCK(pnode->cs_vSend, lockSend);
+
                 if (lockSend)
                     g_signals.SendMessages(pnode);
             }
