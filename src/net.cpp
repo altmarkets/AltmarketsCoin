@@ -1687,7 +1687,9 @@ void ThreadMessageHandler()
 
             // Receive messages
             {
+                LOCK(cs_vNodes);
                 TRY_LOCK(pnode->cs_vRecvMsg, lockRecv);
+
                 if (lockRecv)
                 {
                     if (!g_signals.ProcessMessages(pnode))
