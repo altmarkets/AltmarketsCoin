@@ -1,5 +1,5 @@
 ---
-name: "Altmarkets-arm-1.2.0.0"
+name: "Altmarkets-arm-1.3.5.0"
 enable_cache: true
 suites:
 - "trusty"
@@ -29,8 +29,8 @@ packages:
 - "python"
 reference_datetime: "2018-01-01 00:00:00"
 remotes:
-- "url": "https://github.com/duality-solutions/Altmarkets.git"
-  "dir": "Altmarkets"
+- "url": "https://github.com/altmarkets/AltmarketsCoin.git"
+  "dir": "AltmarketsCoin"
 files: []
 script: |
   WRAP_DIR=$HOME/wrapped
@@ -70,7 +70,7 @@ script: |
     done
   done
   export PATH=${WRAP_DIR}:${PATH}
-  cd Altmarkets
+  cd AltmarketsCoin
   BASEPREFIX=`pwd`/depends
   # Build dependencies for each host
   for i in $HOSTS; do
@@ -80,13 +80,13 @@ script: |
   ./autogen.sh
   ./configure --prefix=${BASEPREFIX}/`echo "${HOSTS}" | awk '{print $1;}'`
   make dist
-  SOURCEDIST=`echo Altmarkets-*.tar.gz`
+  SOURCEDIST=`echo altmarkets-*.tar.gz`
   DISTNAME=`echo ${SOURCEDIST} | sed 's/.tar.*//'`
   # Correct tar file order
   mkdir -p temp
   pushd temp
   tar xf ../$SOURCEDIST
-  find Altmarkets-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
+  find altmarkets-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
   popd
   ORIGPATH="$PATH"
   # Extract the release tarball into a dir for each host and build
