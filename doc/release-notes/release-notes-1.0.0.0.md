@@ -1,12 +1,12 @@
-Altmarkets version 1.2.0.0 is now available from:
+Altmarkets version 1.3.5.0 is now available from:
 
-  <https://github.com/Duality-Solutions/Altmarkets/releases/tag/1.2.0.0>
+  <https://github.com/altmarkets/AltmarketsCoin/releases/tag/1.3.5.0>
 
 This is the first release.
 
 Please report bugs using the issue tracker at github:
 
-  <https://github.com/Duality-Solutions/Altmarkets/issues>
+  <https://github.com/altmarkets/AltmarketsCoin/issues>
 
 
 Compatibility
